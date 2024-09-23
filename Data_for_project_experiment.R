@@ -3,7 +3,7 @@ library(tidyverse)
 library(pxweb) 
 library(stringr)
 library(dplyr)
-
+library(zoo)
 
 ### Step 2: extract data from database PXWEB
 ## This data describe about amount of death by region in 2023
@@ -78,13 +78,12 @@ medelålder_kommun <- subset(medelålder_kommun, select = - kön)
 medelålder_kommun <- subset(medelålder_kommun, select = - år)
 
 
-### Steo 3: Synthesize the necessary data to project
+### Step 3: Synthesize the necessary data to project
 # add amount of death to dataframe average age of population
 data <- cbind(medelålder_kommun,total_död$Döda)
 
-# Add index column to dataframe (index = kommunkod)
-Index <- kommun
-data <- cbind(Index,data)
+# Add kommunkod column to dataframe
+data <- cbind(kommun,data)
 # Modify names of column
 colnames(data)= c("Kommunkod","Region","Medelålder","Dödfall")
 
