@@ -1,25 +1,23 @@
-
 ### stratifierat urval
 ## Vi delar in population i 5 stratum:
-# Lågt antalet döđfall
-stratum1 = data[data$Dödfall < 200,]
+# Lågt andel
+stratum1 = data[data$Andel_födda_på_population < 6,]
 stratum1
-# Liten lågt antalet dödfall
-stratum2 = data[data$Dödfall >= 200 & data$Dödfall < 500,]
+# Liten lågt andel
+stratum2 = data[data$Andel_födda_på_population >= 6 & data$Andel_födda_på_population < 8,]
 stratum2
-# Median antalet dödfall
-stratum3 = data[data$Dödfall >= 500 & data$Dödfall < 1000,]
+# Median andel
+stratum3 = data[data$Andel_födda_på_population >= 8 & data$Andel_födda_på_population < 10,]
 stratum3
-# Liten högt antalet dödfall
-stratum4 = data[data$Dödfall >= 1000 & data$Dödfall < 3000,]
+# Liten högt andel
+stratum4 = data[data$Andel_födda_på_population >= 10 & data$Andel_födda_på_population < 12,]
 stratum4
-# Högt antalet dödfall
-stratum5 = data[data$Dödfall >= 3000,]
+# Högt andel
+stratum5 = data[data$Andel_födda_på_population >= 12,]
 stratum5
 
-
-var(stratum1$Medelålder)
-var(stratum2$Medelålder)
-var(stratum3$Medelålder)
-var(stratum4$Medelålder)
-var(stratum5$Medelålder)
+sd(stratum1$Population)
+sd(stratum2$Population)
+sd(stratum3$Population)
+sd(stratum4$Population)
+sd(stratum5$Population)
